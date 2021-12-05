@@ -37,7 +37,7 @@ final class Data{
 			Server::getInstance()->getAsyncPool()->submitTask(new SaveAsyncTask($path, $data, $type));
 			return;
 		}
-		$this->save($type, $path, $data);
+		self::save($type, $path, $data);
 	}
 	
 }

@@ -12,7 +12,7 @@ use const YAML_UTF8_ENCODING;
 
 trait SaveTrait{
 	
-	private function save(int $type, string $path, array $data) :bool{
+	private static function save(int $type, string $path, array $data) :bool{
 		if($type === 0){
 			file_put_contents($path, yaml_emit($data, YAML_UTF8_ENCODING));
 			return true;

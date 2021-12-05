@@ -26,7 +26,7 @@ final class SaveAsyncTask extends AsyncTask{
 		$path = $this->path;
 		$data = (array) $this->data;
 		$this->logger->debug('Starting save data at ' .  $path);
-		if($this->save($type, $path, $data)){
+		if(self::save($type, $path, $data)){
 			$this->setResult('Completed');
 		}else{
 			$this->setResult('Failed');
