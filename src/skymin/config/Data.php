@@ -28,7 +28,7 @@ final class Data{
 		if($type === self::JSON){
 			return json_decode($content, true);
 		}else{
-			new \InvalidArgumentException('unknown type');
+			throw new \LogicException('unknown type');
 		}
 	}
 	
