@@ -17,9 +17,9 @@ final class Data{
 	public const YAML = 0;
 	public const JSON = 1;
 	
-	public static function call(string $path, int $type = self::YAML) :array{
+	public static function call(string $path, int $type = self::YAML, array $default = []) :array{
 		if(!file_exists($path)){
-			return [];
+			return $default;
 		}
 		$content = file_get_contents($path);
 		if($type === self::YAML){
