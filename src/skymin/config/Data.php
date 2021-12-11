@@ -17,11 +17,11 @@ final class Data{
 	public const YAML = 0;
 	public const JSON = 1;
 	
-	public static function call(string $path, int $type = self::YAML, array $default = []) :array{
-		if(!file_exists($path)){
+	public static function call(string $fileName, int $type = self::YAML, array $default = []) :array{
+		if(!file_exists($fileName)){
 			return $default;
 		}
-		$content = file_get_contents($path);
+		$content = file_get_contents($fileName);
 		if($type === self::YAML){
 			return yaml_parse(preg_replace("#^( *)(y|Y|yes|Yes|YES|n|N|no|No|NO|true|True|TRUE|false|False|FALSE|on|On|ON|off|Off|OFF)( *)\:#m", "$1\"$2\"$3:", $content));
 		}
@@ -32,12 +32,12 @@ final class Data{
 		}
 	}
 	
-	public static function save(string $path, array $data, int $type = self::YAML, bool $async = true) :void{
+	public static function save(string $fileName, array $data, int $type = self::YAML, bool $async = true) :void{
 		if($async){
-			Server::getInstance()->getAsyncPool()->submitTask(new SaveAsyncTask($path, $data, $type));
+			Server::getInstance()->getAsyncPool()->submitTask(new SaveAsyncTask($fileName, $data, $type));
 			return;
 		}
-		self::save($type, $path, $data);
+		self::save($type, $fileName, $data);
 	}
 	
 }

@@ -14,7 +14,7 @@ final class SaveAsyncTask extends AsyncTask{
 	private PrefixedLogger $logger;
 	
 	public function __construct(
-		private string $path,
+		private string $fileName,
 		private array $data,
 		private int $type
 	){
@@ -23,10 +23,10 @@ final class SaveAsyncTask extends AsyncTask{
 	
 	public function onRun() :void{
 		$type = $this->type;
-		$path = $this->path;
+		$fileName = $this->fileName;
 		$data = (array) $this->data;
-		$this->logger->debug('Starting save data at ' .  $path);
-		if(self::save($type, $path, $data)){
+		$this->logger->debug('Starting save data at ' .  $fileName);
+		if(self::save($type, $fileName, $data)){
 			$this->setResult('Completed');
 		}else{
 			$this->setResult('Failed');
@@ -34,7 +34,7 @@ final class SaveAsyncTask extends AsyncTask{
 	}
 	
 	public function onCompletion() :void{
-		$this->logger->debug($this->getResult() . ' to save Data at' . $this->path);
+		$this->logger->debug($this->getResult() . ' to save Data at' . $this->fileName);
 	}
 	
 }
