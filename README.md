@@ -7,7 +7,7 @@ Save yaml or json files asynchronously
 
 ## get data or create data
 ```php
-Data::call(string $path, $type);
+Data::call(string $fileName, $type, array $default);
 ```
 
 ## save data
