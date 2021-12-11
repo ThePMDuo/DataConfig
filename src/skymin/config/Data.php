@@ -59,7 +59,7 @@ final class Data{
 			Server::getInstance()->getAsyncPool()->submitTask(new SaveAsyncTask($fileName, $data, $type));
 			return;
 		}
-		self::save($type, $fileName, $data);
+		self::restore($type, $fileName, $data);
 	}
 	
 }

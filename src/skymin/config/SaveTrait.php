@@ -40,7 +40,7 @@ use const YAML_UTF8_ENCODING;
 
 trait SaveTrait{
 	
-	private static function save(int $type, string $fileName, array $data) :bool{
+	private static function restore(int $type, string $fileName, array $data) :bool{
 		if(is_dir($fileName)){
 			throw new \LogicException('Target file path already exists and is not a file');
 		}

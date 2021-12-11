@@ -48,7 +48,7 @@ final class SaveAsyncTask extends AsyncTask{
 		$fileName = $this->fileName;
 		$data = (array) $this->data;
 		$this->logger->debug('Starting save data at ' .  $fileName);
-		if(self::save($type, $fileName, $data)){
+		if(self::restore($type, $fileName, $data)){
 			$this->setResult('Completed');
 		}else{
 			$this->setResult('Failed');
