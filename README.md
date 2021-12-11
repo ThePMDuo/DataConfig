@@ -12,7 +12,7 @@ Data::call(string $fileName, $type, array $default);
 
 ## save data
 ```php
-Data::save(string $path, array $data, $type);
+Data::save(string $fileName, array $data, $type);
 ```
 
 ### $type
